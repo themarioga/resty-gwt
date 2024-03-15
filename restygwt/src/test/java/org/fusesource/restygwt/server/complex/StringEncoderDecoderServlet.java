@@ -18,9 +18,9 @@
 
 package org.fusesource.restygwt.server.complex;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.ws.rs.Path;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.ws.rs.Path;
 
 import org.fusesource.restygwt.client.complex.string.service.StringService;
 import org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher;
@@ -70,8 +70,8 @@ public class StringEncoderDecoderServlet extends HttpServletDispatcher {
     }
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+    public void init(javax.servlet.ServletConfig servletConfig) throws javax.servlet.ServletException {
+        super.init(servletConfig);
 
         ResteasyProviderFactory providerFactory = servletContainerDispatcher.getDispatcher().getProviderFactory();
         providerFactory.registerProvider(JsonStringProvider.class);
@@ -79,7 +79,7 @@ public class StringEncoderDecoderServlet extends HttpServletDispatcher {
         Registry registry = servletContainerDispatcher.getDispatcher().getRegistry();
         registry.addPerRequestResource(StringsImpl.class, "/org.fusesource.restygwt.StringEncoderDecoderTestGwt.JUnit");
         registry.addPerRequestResource(StringsImpl.class,
-            "/org.fusesource.restygwt.StringEncoderDecoderAutodetectPlainTextTestGwt.JUnit");
+                "/org.fusesource.restygwt.StringEncoderDecoderAutodetectPlainTextTestGwt.JUnit");
     }
 
 }

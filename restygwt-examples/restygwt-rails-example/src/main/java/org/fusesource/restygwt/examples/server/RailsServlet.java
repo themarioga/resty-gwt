@@ -18,8 +18,8 @@
 
 package org.fusesource.restygwt.examples.server;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 
 import org.jruby.rack.RackApplicationFactory;
 import org.jruby.rack.RackServlet;

@@ -171,7 +171,7 @@ public abstract class BaseSourceCreator extends AbstractSourceCreator {
 
     /**
      * Some packages are protected such that any type we generate in that package can't subsequently be loaded
-     * because of a {@link SecurityException}, for example <code>java.</code> and <code>javax.</code> packages. 
+     * because of a {@link SecurityException}, for example <code>java.</code> and <code>jakarta.</code> packages.
      * <p>
      * To workaround this issue we add a prefix onto such packages so that the generated code can be loaded
      * later. The prefix added is <code>open.</code>
@@ -180,7 +180,7 @@ public abstract class BaseSourceCreator extends AbstractSourceCreator {
      * @return
      */
     private String getOpenPackageName(String name) {
-        if (name.startsWith("java.") || name.startsWith("javax.")) {
+        if (name.startsWith("java.") || name.startsWith("javax.") || name.startsWith("jakarta.")) {
             name = "open." + name;
         }
         return name;

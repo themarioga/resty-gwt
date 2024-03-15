@@ -21,9 +21,9 @@ package org.fusesource.restygwt.examples.server;
 import java.util.Enumeration;
 import java.util.Properties;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 import org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet;
 

@@ -18,8 +18,6 @@
 
 package org.fusesource.restygwt.server.complex;
 
-import static org.fusesource.restygwt.client.complex.ResteasyService.InvalidBean;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,26 +26,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.ext.ParamConverter;
+import jakarta.ws.rs.ext.ParamConverterProvider;
+import jakarta.ws.rs.ext.Provider;
+import org.fusesource.restygwt.client.complex.ResteasyService;
+import org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher;
+import org.jboss.resteasy.spi.Registry;
+import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.ext.ParamConverter;
-import javax.ws.rs.ext.ParamConverterProvider;
-import javax.ws.rs.ext.Provider;
-
-import org.fusesource.restygwt.client.complex.ResteasyService;
-import org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher;
-import org.jboss.resteasy.spi.Registry;
-import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import static org.fusesource.restygwt.client.complex.ResteasyService.InvalidBean;
 
 public class ResteasyServlet extends HttpServletDispatcher {
 
@@ -144,8 +140,8 @@ public class ResteasyServlet extends HttpServletDispatcher {
     }
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
+    public void init(javax.servlet.ServletConfig servletConfig) throws javax.servlet.ServletException {
+        super.init(servletConfig);
 
         SimpleModule module = new SimpleModule();
         module.addSerializer(InvalidBean.class, new JsonSerializer<InvalidBean>() {

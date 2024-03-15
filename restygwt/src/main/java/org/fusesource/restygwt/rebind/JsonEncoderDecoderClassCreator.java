@@ -63,7 +63,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.bind.annotation.XmlTransient;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 import org.fusesource.restygwt.client.Json;
 import org.fusesource.restygwt.client.Json.Style;
@@ -525,7 +525,7 @@ public class JsonEncoderDecoderClassCreator extends BaseSourceCreator {
     	return getCodingMethodName("encode", type);
     }
     private String getCodingMethodName(String codingType, Subtype type) {
-        return codingType + type.clazz.getSimpleSourceName() + type.hashCode();
+        return codingType + type.clazz.getSimpleSourceName() + Math.abs(type.hashCode());
     }
     private String getDecodeMethodName(Subtype type) {
         return getCodingMethodName("decode", type);

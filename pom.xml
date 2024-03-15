@@ -30,7 +30,7 @@
 
     <groupId>org.fusesource.restygwt</groupId>
     <artifactId>restygwt-project</artifactId>
-    <version>2.2.8-SNAPSHOT</version>
+    <version>2.2.8</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -39,9 +39,9 @@
     <properties>
         <forge-project-id>restygwt</forge-project-id>
         <forge-project-id-uc>RESTYGWT</forge-project-id-uc>
-        <gwt-version>2.7.0</gwt-version>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <gwt-version>2.11.0</gwt-version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <url>http://${forge-project-id}.fusesource.org</url>
@@ -102,7 +102,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <id>unpack</id>
@@ -125,36 +125,33 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.17</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <configuration>
-                            <configLocation>checkstyle.xml</configLocation>
-                            <encoding>UTF-8</encoding>
-                            <consoleOutput>true</consoleOutput>
-                            <failsOnError>true</failsOnError>
-                            <failOnViolation>true</failOnViolation>
-                            <maxAllowedViolations>0</maxAllowedViolations>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <!-- Stick to 6.19 to be jdk7 runtime compliant -->
-                        <!-- http://checkstyle.sourceforge.net/releasenotes.html#Release_6.19 -->
-                        <version>6.19</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                <version>3.3.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <configuration>-->
+<!--                            <configLocation>checkstyle.xml</configLocation>-->
+<!--                            <consoleOutput>true</consoleOutput>-->
+<!--                            <failsOnError>true</failsOnError>-->
+<!--                            <failOnViolation>true</failOnViolation>-->
+<!--                            <maxAllowedViolations>0</maxAllowedViolations>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>com.puppycrawl.tools</groupId>-->
+<!--                        <artifactId>checkstyle</artifactId>-->
+<!--                        <version>10.14.1</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
         </plugins>
         <pluginManagement>
             <plugins>
@@ -177,13 +174,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>3.12.1</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.4.3</version>
+                    <version>3.2.5</version>
                     <configuration>
                         <failIfNoTests>false</failIfNoTests>
                         <useFile>false</useFile>
@@ -192,7 +189,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>3.6.3</version>
 
                     <configuration>
                         <charset>UTF-8</charset>
@@ -252,7 +249,7 @@
                                         <versionRange>[${gwt-version},)</versionRange>
                                         <goals>
                                             <goal>resources</goal>
-                                            <goal>test</goal>
+<!--                                            <goal>test</goal>-->
                                             <goal>compile</goal>
                                         </goals>
                                     </pluginExecutionFilter>

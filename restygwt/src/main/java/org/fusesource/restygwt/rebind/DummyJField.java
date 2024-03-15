@@ -15,8 +15,8 @@ class DummyJField implements JField {
     private final JType type;
     private final String name;
     private final JMethod getterMethod;
-    private Map<Class<? extends Annotation>, Annotation> annotations =
-        new HashMap<Class<? extends Annotation>, Annotation>();
+    private final Map<Class<? extends Annotation>, Annotation> annotations =
+            new HashMap<>();
 
     DummyJField(String name, JType type, JMethod getterMethod) {
         this.name = name;
@@ -43,16 +43,6 @@ class DummyJField implements JField {
     @Override
     public boolean isAnnotationPresent(Class<? extends Annotation> annotationClass) {
         return annotations.containsKey(annotationClass);
-    }
-
-    @Override
-    public String[][] getMetaData(String tagName) {
-        return null;
-    }
-
-    @Override
-    public String[] getMetaDataTags() {
-        return null;
     }
 
     @Override

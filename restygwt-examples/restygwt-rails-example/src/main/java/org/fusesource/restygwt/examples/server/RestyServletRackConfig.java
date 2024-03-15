@@ -20,7 +20,7 @@ package org.fusesource.restygwt.examples.server;
 
 import java.util.Properties;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import org.jruby.rack.servlet.ServletRackConfig;
 
