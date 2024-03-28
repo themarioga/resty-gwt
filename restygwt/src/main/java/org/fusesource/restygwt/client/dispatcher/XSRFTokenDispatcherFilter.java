@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2009-2012 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -25,7 +25,7 @@ import org.fusesource.restygwt.client.callback.XSRFToken;
 
 public class XSRFTokenDispatcherFilter implements DispatcherFilter {
 
-    private XSRFToken xsrf;
+    private final XSRFToken xsrf;
 
     public XSRFTokenDispatcherFilter(XSRFToken xsrf) {
         this.xsrf = xsrf;

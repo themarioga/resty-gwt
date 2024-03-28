@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2009-2012 the original author or authors.
  * See the notice.md file distributed with this work for additional
  * information regarding copyright ownership.
@@ -14,10 +14,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-
-/**
- *
  */
 
 package org.fusesource.restygwt.client.callback;
