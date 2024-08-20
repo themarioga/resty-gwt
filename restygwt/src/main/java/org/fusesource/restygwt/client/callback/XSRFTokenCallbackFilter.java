@@ -21,6 +21,7 @@ package org.fusesource.restygwt.client.callback;
 import com.google.gwt.http.client.RequestCallback;
 import com.google.gwt.http.client.Response;
 
+import com.google.gwt.user.client.Cookies;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.cache.QueueableCacheStorage;
 
@@ -34,11 +35,17 @@ public class XSRFTokenCallbackFilter implements CallbackFilter {
 
     @Override
     public RequestCallback filter(Method method, Response response, RequestCallback callback) {
-        String token = response.getHeader(xsrf.getHeaderKey());
+        String token = Cookies.getCookie(xsrf.getCookieKey());
+        if (token == null) {
+            token = response.getHeader(xsrf.getHeaderKey());
+        }
+
         String restyCacheHeader = response.getHeader(QueueableCacheStorage.RESTY_CACHE_HEADER);
         if (token != null && (restyCacheHeader == null || restyCacheHeader.isEmpty())) {
             xsrf.setToken(token);
         }
+
         return callback;
     }
+
 }

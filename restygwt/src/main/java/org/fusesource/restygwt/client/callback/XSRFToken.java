@@ -20,19 +20,25 @@ package org.fusesource.restygwt.client.callback;
 
 public class XSRFToken {
     private final String headerKey;
+    private final String cookieKey;
 
     private String token;
 
     public XSRFToken() {
-        this("X-CSRF-TOKEN");
+        this("X-CSRF-TOKEN", "XSRF-TOKEN");
     }
 
-    public XSRFToken(String headerKey) {
+    public XSRFToken(String headerKey, String cookieKey) {
         this.headerKey = headerKey;
+        this.cookieKey = cookieKey;
     }
 
     public String getHeaderKey() {
         return headerKey;
+    }
+
+    public String getCookieKey() {
+        return cookieKey;
     }
 
     public String getToken() {
