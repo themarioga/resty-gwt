@@ -25,7 +25,7 @@ public class XSRFToken {
     private String token;
 
     public XSRFToken() {
-        this("X-CSRF-TOKEN", "XSRF-TOKEN");
+        this("X-XSRF-TOKEN", "XSRF-TOKEN");
     }
 
     public XSRFToken(String headerKey, String cookieKey) {
